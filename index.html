@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Encryptor/Decryptor</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Include CryptoJS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <h1>Text Encryptor/Decryptor</h1>
+        <h3>Text Encryptor/Decryptor Using AES</h3>
         <div class="input-group">
-            <label for="normalText">Enter Text to Encrypt:</label>
-            <textarea id="normalText" rows="4"></textarea>
+            <label for="normalText">Enter Text:</label>
+            <textarea id="normalText" rows="4" placeholder="Enter text to encrypt or decrypt..."></textarea>
         </div>
 
         <div class="input-group">
-            <label for="secretKey">Enter Secret Key:</label>
-            <input type="text" id="secretKey">
+            <label for="secretKey">Enter Secret Key (Optional):</label>
+
+            <textarea id="secretKey" rows="4" placeholder="Default is 'hello world"></textarea>
         </div>
 
         <div class="buttons">
@@ -30,7 +31,7 @@
 
         <div class="output-group">
             <label for="result">Result:</label>
-            <textarea id="result" rows="4" readonly></textarea>
+            <textarea id="result" rows="4" readonly placeholder="Your result will appear here..."></textarea>
         </div>
     </div>
 

@@ -1,10 +1,10 @@
 // Function to encrypt text
 function encrypt() {
   const normalText = document.getElementById("normalText").value;
-  const secretKey = document.getElementById("secretKey").value;
+  let secretKey = document.getElementById("secretKey").value || "hello world";
 
-  if (!normalText || !secretKey) {
-    alert("Please enter both text and a secret key.");
+  if (!normalText) {
+    alert("Please enter text to encrypt.");
     return;
   }
 
@@ -15,20 +15,24 @@ function encrypt() {
 // Function to decrypt text
 function decrypt() {
   const encryptedText = document.getElementById("normalText").value;
-  const secretKey = document.getElementById("secretKey").value;
+  let secretKey = document.getElementById("secretKey").value || "hello world";
 
-  if (!encryptedText || !secretKey) {
-    alert("Please enter both the encrypted text and a secret key.");
+  if (!encryptedText) {
+    alert("Please enter text to decrypt.");
     return;
   }
 
-  const bytes = CryptoJS.AES.decrypt(encryptedText, secretKey);
-  const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+  try {
+    const bytes = CryptoJS.AES.decrypt(encryptedText, secretKey);
+    const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
 
-  if (!decryptedText) {
-    alert("Invalid secret key or text.");
-    return;
+    if (!decryptedText) {
+      throw new Error("Invalid secret key or encrypted text.");
+    }
+
+    document.getElementById("result").value = decryptedText;
+  } catch (error) {
+    alert("Invalid secret key or encrypted text.");
+    document.getElementById("result").value = "";
   }
-
-  document.getElementById("result").value = decryptedText;
 }
