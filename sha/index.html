@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHA-256 Encryptor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>SHA-256 Encryptor</h1>
+        <input type="text" id="inputText" placeholder="Enter text to hash">
+        <button onclick="generateHash()">Generate SHA-256</button>
+        <p>SHA-256 Output:</p>
+        <textarea id="outputHash" readonly></textarea>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
